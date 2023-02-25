@@ -1,3 +1,24 @@
+<app-header></app-header>
+<!-- Slider -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/img/bus-background.jpg" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../../assets/img/children-bus.jpg" class="d-block w-100 carousel-img" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Body -->
 <div class="container text-center">
   <div class="row divide-space">
     <div class="col">
@@ -6,7 +27,7 @@
       <button type="button" class="btn btn-outline-secondary">ENTRE EM CONTATO</button>
     </div>
     <div class="col">
-        <img src="../../assets/img/busao.png" height="300px" width="300px" class="card-img-top" alt="...">
+        <img src="../../assets/img/busao.png" class="card-img-top" alt="...">
     </div>
   </div>
   <div class="row divide-space">
@@ -29,24 +50,41 @@
   <div class="container text-center">
     <div class="row divide-space divide-space-bottom">
       <div class="col">
-        <div class="card">
+        <div class="card card-img">
           <img src="../../assets/img/rio-de-janeiro-g43e3a5bf1_640.jpg" class="card-img-top" alt="...">
-          <p class="texto-cidade">Rio de Janeiro</p>
+          <p class="text-city">Rio de Janeiro</p>
         </div>
       </div>
       <div class="col">
-        <div class="card">
+        <div class="card card-img">
           <img src="../../assets/img/great-city.jpg" class="card-img-top" alt="...">
-          <p class="texto-cidade">Manilla</p>
+          <p class="text-city">Manilla</p>
         </div>
       </div>
       <div class="col">
-        <div class="card">
+        <div class="card card-img">
           <img src="../../assets/img/brooklyn-bridge-g9fe998c5f_640.jpg" class="card-img-top" alt="...">
-          <p class="texto-cidade">New York</p>
+          <p class="text-city">New York</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm list-icon">
+      <h2 class="text-center title-two">Redes</h2>
+      <ul class="nav justify-content-center align-icons">
+        <li class="list-group-item icon-picture-git"><a href="https://github.com/Daniel-Fonseca-da-Silva">GitHub</a></li>
+        <li class="list-group-item icon-picture-linke"><a href="#">Linkedin</a></li>
+        <li class="list-group-item icon-picture-inst"><a href="https://www.linkedin.com/in/daniel-f-s-developer/">Linkedin</a></li>
+      </ul>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
 
+<app-footer></app-footer>

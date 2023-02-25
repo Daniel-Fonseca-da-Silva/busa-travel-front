@@ -5,20 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SocialComponent } from './social/social.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ContatoComponent } from './contato/contato.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'contato', component: ContatoComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    MenuComponent,
     FooterComponent,
-    SocialComponent,
+    ContatoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
