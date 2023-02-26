@@ -9,10 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
 import { ContatoComponent } from './contato/contato.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { FuncionarioComponent } from './funcionario/funcionario.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'cliente', component: ClienteComponent },
+  { path: 'funcionario', component: FuncionarioComponent },
 ];
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ContatoComponent,
+    ClienteComponent,
+    FuncionarioComponent,
   ],
   imports: [
     BrowserModule,
