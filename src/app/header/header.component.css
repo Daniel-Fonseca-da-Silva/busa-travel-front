@@ -1,4 +1,13 @@
 .navbar a {
-  color: #333;
+  color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar-header, .menu-color {
+  background-color: #3f39be !important;
+}
+
+/* Button */
+.btn-header {
+  color: white;
 }
