@@ -1,1 +1,44 @@
-<p>cliente works!</p>
+<app-header></app-header>
+<div class="container-fluid text-center colored-container">
+  <h1 class="display-1 title-passenger">Passageiros</h1>
+  <p class="lead p-passenger-1">Gerencie seus dados aqui</p>
+  <div class="row space-one">
+    <div class="col-lg-6">
+      <form class="row g-3">
+        <div class="col-auto">
+          <h2 class="display-2 title-passenger-2">Buscar informando dados</h2>
+          <p class="lead p-passenger-2">Busque suas informações com o número do seu documento que foi fornecido no seu cadastramento</p>
+          <label for="" class="visually-hidden">Buscar</label>
+          <input type="text" class="form-control" id="" placeholder="">
+          <div class="col-auto">
+            <button type="submit" class="btn btn-success mb-3 btn-search">Buscar</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-lg-6">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Indice</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Crédito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>20  </td>
+            <td>XFDG</td>
+            <td>0.0 <i>R$</i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
