@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContatoComponent } from './contato/contato.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ClienteModule } from './cliente/cliente.module';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,10 +27,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     ContatoComponent,
-    ClienteComponent,
     FuncionarioComponent,
   ],
   imports: [
+    ClienteModule,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
