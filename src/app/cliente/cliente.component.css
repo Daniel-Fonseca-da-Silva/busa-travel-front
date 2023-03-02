@@ -10,9 +10,30 @@
   padding-bottom: 2.5%;
 }
 
+.box-one, .box-two {
+  padding-top: 5%;
+}
+
+.box-two {
+  padding-bottom: 1%;
+}
+
+.p-two {
+  padding-top: 1%;
+}
+
+.card-one {
+  margin-bottom: 1%;
+}
+
 /* Buttons */
-.btn-search {
+.btn-search, .btn-update, .btn-delete {
   margin-top: 2%;
+}
+
+.btn-search,
+.btn-update {
+  margin-right: 1%;
 }
 
 /* Title and paragraphs */
@@ -37,4 +58,9 @@
   padding-left: 10%;
   padding-right: 10%;
   font-size: 1.0rem;
+}
+
+/* Card */
+.card-col {
+  padding-top: 2% !important;
 }
