@@ -18,6 +18,8 @@ export class ClienteComponent implements OnInit {
 
   searchForm!: FormGroup;
 
+  panelDeleted: boolean = false;
+
   ngOnInit(): void {
     this.searchForm = this.initForm();
   }
@@ -26,6 +28,11 @@ export class ClienteComponent implements OnInit {
     return this.clienteService
       .getClientes(this.searchForm.value.name)
       .subscribe((dado: ClienteI) => (this.clients$ = dado));
+  }
+
+  onDelete(): void {
+    this.clienteService.deleteClientes(this.clients$.id).subscribe();
+    this.panelDeleted = true;
   }
 
   initForm(): FormGroup {
