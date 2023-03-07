@@ -15,7 +15,7 @@
             <div class="col">
               <div class="card card-one" *ngIf="!clients$">
                 <div class="card-body element-card">
-                  <p class="lead p-two">Nenhum dado informado ou Localizado</p>
+                  <p class="lead p-two">Nenhum dado informado ou localizado</p>
                 </div>
               </div>
             </div>
@@ -38,8 +38,14 @@
                   <input type="text" class="form-control" id="name" name="name" required formControlName="name" placeholder="">
                   <div class="col-auto">
                     <button type="submit" class="btn btn-success mb-3 btn-search" [disabled]="searchForm.invalid">Buscar</button>
+                    <button type="button" class="btn btn-primary mb-3 btn-update" (click)="changeRouter('/cliente-form');" [disabled]="!searchForm.invalid">Novo</button>
                     <button type="button" class="btn btn-warning mb-3 btn-update" [disabled]="searchForm.invalid">Atualiza</button>
                     <button type="button" (click)="onDelete()" class="btn btn-danger mb-3 btn-delete" [disabled]="searchForm.invalid">Deletar</button>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" (click)="changeRouter('')" class="btn btn-warning mb-3 btn-delete-two">Voltar</button>
+                    <button type="button" (click)="clearText()" class="btn btn-danger mb-3"
+                      [disabled]="searchForm.invalid">Limpar</button>
                   </div>
                 </form>
               </div>

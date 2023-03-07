@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClienteService } from './cliente.service';
 import { ClienteI } from './clienteI';
 
@@ -11,7 +12,8 @@ import { ClienteI } from './clienteI';
 export class ClienteComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
-    private readonly clienteService: ClienteService
+    private readonly clienteService: ClienteService,
+    private readonly router: Router
   ) {}
 
   clients$!: ClienteI;
@@ -39,5 +41,13 @@ export class ClienteComponent implements OnInit {
     return this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
     });
+  }
+
+  clearText() {
+    this.searchForm.reset();
+  }
+
+  changeRouter(rota: string) {
+    this.router.navigateByUrl(rota);
   }
 }
