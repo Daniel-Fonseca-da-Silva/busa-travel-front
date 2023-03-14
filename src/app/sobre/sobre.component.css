@@ -1,0 +1,19 @@
+.colored-container {
+  width: 100%;
+  background-color: #4f46e5;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+/* Title and paragraphs */
+.title-passenger,
+.p-passenger-1 {
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.title-passenger {
+  font-size: 3rem;
+}
+

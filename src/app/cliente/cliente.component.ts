@@ -55,7 +55,7 @@ export class ClienteComponent implements OnInit {
     this.clientsFormList = this.initFormClients();
   }
 
-  onSubmitUpdate() {
+  onSubmitUpdate(): void {
     this.clientsToUpdate$ = {
       name: this.clientsFormList.value.name,
       age: this.clientsFormList.value.age,
@@ -89,25 +89,25 @@ export class ClienteComponent implements OnInit {
     });
   }
 
-  clearText() {
+  clearText(): void {
     this.searchForm.reset();
     this.displayStyle = 'none';
     this.showTableOfClient = false;
     this.showPanelEdit = false;
   }
 
-  clearTextUpdate() {
+  clearTextUpdate(): void {
     this.clientsFormList.reset();
   }
 
-  changeRouter(rota: string) {
+  changeRouter(rota: string): void {
     this.router.navigateByUrl(rota);
   }
 
-  openPopup() {
+  openPopup(): void {
     this.displayStyle = 'block';
   }
-  closePopup() {
+  closePopup(): void {
     this.displayStyle = 'none';
   }
 }

@@ -16,6 +16,8 @@ import { HeaderModule } from './header/header.module';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ClienteFormModule } from './cliente-form/cliente-form.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SobreModule } from './sobre/sobre.module';
+import { SobreComponent } from './sobre/sobre.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'cliente', component: ClienteComponent },
   { path: 'funcionario', component: FuncionarioComponent },
   { path: 'cliente-form', component: ClienteFormComponent },
+  { path: 'sobre', component: SobreComponent },
 ];
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    SobreModule,
     ClienteFormModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
