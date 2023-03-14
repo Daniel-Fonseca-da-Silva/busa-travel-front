@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
+import { ClienteI } from './clienteI';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,11 @@ export class ClienteService {
 
   deleteClientes(id: number): Observable<any> {
     return this._httpClient.delete(this.apiURL + id);
+  }
+
+  updateCliente(id: number, cliente: ClienteI): Observable<ClienteI> {
+    console.log('id: ' + id, 'cliente: ' + cliente);
+
+    return this._httpClient.patch<ClienteI>(this.apiURL + id, cliente);
   }
 }

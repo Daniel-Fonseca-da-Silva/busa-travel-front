@@ -18,23 +18,69 @@ export class ClienteComponent implements OnInit {
 
   clients$!: ClienteI;
 
+  clientsToUpdate$!: ClienteI;
+
   searchForm!: FormGroup;
 
-  panelDeleted: boolean = false;
+  clientsFormList!: FormGroup;
+
+  showTableOfClient: boolean = false;
+
+  showPanelEdit: boolean = false;
+
+  displayStyle = 'none';
 
   ngOnInit(): void {
     this.searchForm = this.initForm();
   }
 
-  onSubmit(): ClienteI | undefined {
-    return this.clienteService
+  initFormClients(): FormGroup {
+    return this.fb.group({
+      name: [
+        this.clients$.name,
+        [Validators.required, Validators.minLength(5)],
+      ],
+      age: [this.clients$.age, [Validators.required]],
+      document: [
+        this.clients$.document,
+        [Validators.required, Validators.maxLength(5), Validators.minLength(5)],
+      ],
+      amount: [this.clients$.amount, [Validators.required]],
+    });
+  }
+
+  callFormUpdate(): void {
+    this.showTableOfClient = false;
+    this.showPanelEdit = true;
+    this.clientsFormList = this.initFormClients();
+  }
+
+  onSubmitUpdate() {
+    this.clientsToUpdate$ = {
+      name: this.clientsFormList.value.name,
+      age: this.clientsFormList.value.age,
+      document: this.clientsFormList.value.document,
+      amount: this.clientsFormList.value.amount,
+    };
+    this.clienteService
+      .updateCliente(this.clients$.id!, this.clientsToUpdate$)
+      .subscribe();
+    this.showPanelEdit = false;
+  }
+
+  onSubmit(): ClienteI {
+    this.clients$ = this.clienteService
       .getClientes(this.searchForm.value.name)
       .subscribe((dado: ClienteI) => (this.clients$ = dado));
+    this.showPanelEdit = false;
+    this.showTableOfClient = true;
+    return this.clients$;
   }
 
   onDelete(): void {
-    this.clienteService.deleteClientes(this.clients$.id).subscribe();
-    this.panelDeleted = true;
+    this.clienteService.deleteClientes(this.clients$.id!).subscribe();
+    this.displayStyle = 'none';
+    this.showTableOfClient = false;
   }
 
   initForm(): FormGroup {
@@ -45,9 +91,23 @@ export class ClienteComponent implements OnInit {
 
   clearText() {
     this.searchForm.reset();
+    this.displayStyle = 'none';
+    this.showTableOfClient = false;
+    this.showPanelEdit = false;
+  }
+
+  clearTextUpdate() {
+    this.clientsFormList.reset();
   }
 
   changeRouter(rota: string) {
     this.router.navigateByUrl(rota);
+  }
+
+  openPopup() {
+    this.displayStyle = 'block';
+  }
+  closePopup() {
+    this.displayStyle = 'none';
   }
 }
