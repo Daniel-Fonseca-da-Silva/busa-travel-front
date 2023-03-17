@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ClienteI } from './clienteI';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ClienteService {
   apiURL = 'http://localhost:3000/users/';
 
   getClientes(document: string): any {
-    return this._httpClient.get(this.apiURL + document);
+    return this._httpClient.get(this.apiURL + 'document/' + document);
   }
 
   deleteClientes(id: number): Observable<any> {
@@ -21,8 +21,6 @@ export class ClienteService {
   }
 
   updateCliente(id: number, cliente: ClienteI): Observable<ClienteI> {
-    console.log('id: ' + id, 'cliente: ' + cliente);
-
     return this._httpClient.patch<ClienteI>(this.apiURL + id, cliente);
   }
 }

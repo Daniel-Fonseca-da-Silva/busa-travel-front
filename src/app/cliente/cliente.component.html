@@ -82,6 +82,8 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Idade</th>
                 <th scope="col">Documento</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
                 <th scope="col">Crédito</th>
               </tr>
             </thead>
@@ -90,6 +92,8 @@
                 <td>{{ clients$.name }}</td>
                 <td>{{ clients$.age }}</td>
                 <td>{{ clients$.document }}</td>
+                <td>{{ clients$.email }}</td>
+                <td>{{ clients$.tel }}</td>
                 <td>{{ clients$.amount }} <i>R$</i></td>
               </tr>
             </tbody>
@@ -142,6 +146,22 @@
                     </div>
                     <label for="" class="form-label">Documento</label>
                     <input type="text" class="form-control" formControlName="document" id="document" placeholder="">
+                  </div>
+                  <div class="mb-3">
+                    <div *ngIf="clientsFormList.get('email')?.touched && clientsFormList.get('email')?.errors?.['required']"
+                      class="alert alert-danger" role="alert">
+                      Atenção este campo é requerido!
+                    </div>
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" id="email" placeholder="">
+                  </div>
+                  <div class="mb-3">
+                    <div *ngIf="clientsFormList.get('tel')?.touched && clientsFormList.get('tel')?.errors?.['required']"
+                      class="alert alert-danger" role="alert">
+                      Atenção este campo é requerido!
+                    </div>
+                    <label for="" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" formControlName="tel" id="tel" placeholder="">
                   </div>
                   <div class="mb-3">
                     <div *ngIf="clientsFormList.get('amount')?.touched && clientsFormList.get('amount')?.errors?.['required']"

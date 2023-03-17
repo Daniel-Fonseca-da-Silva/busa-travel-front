@@ -45,6 +45,8 @@ export class ClienteComponent implements OnInit {
         this.clients$.document,
         [Validators.required, Validators.maxLength(5), Validators.minLength(5)],
       ],
+      email: [this.clients$.email, [Validators.required]],
+      tel: [this.clients$.tel, [Validators.required]],
       amount: [this.clients$.amount, [Validators.required]],
     });
   }
@@ -60,6 +62,8 @@ export class ClienteComponent implements OnInit {
       name: this.clientsFormList.value.name,
       age: this.clientsFormList.value.age,
       document: this.clientsFormList.value.document,
+      email: this.clientsFormList.value.email,
+      tel: this.clientsFormList.value.tel,
       amount: this.clientsFormList.value.amount,
     };
     this.clienteService
