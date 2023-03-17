@@ -1,0 +1,79 @@
+.colored-container {
+  width: 100%;
+  background-color: #4f46e5;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+/* Title and paragraphs */
+.space-one {
+  padding-top: 5%;
+  padding-bottom: 2.5%;
+}
+
+.box-one,
+.box-two {
+  padding-top: 5%;
+}
+
+.box-two {
+  padding-bottom: 1%;
+}
+
+.p-two {
+  padding-top: 1%;
+}
+
+.card-one {
+  margin-bottom: 1%;
+}
+
+.title-driver,
+.p-driver-1,
+.title-driver-2,
+.p-driver-2 {
+  color: white !important;
+}
+
+.title-driver {
+  font-size: 3rem;
+}
+
+.text-title-h1 {
+  font-size: 2rem;
+}
+
+.title-driver-2 {
+  font-size: 2.5rem;
+}
+
+.text-paragraph-p1 {
+  font-size: 1rem;
+}
+
+.box-one,
+.box-two {
+  padding-top: 5%;
+}
+
+.p-driver-2 {
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 1.0rem;
+}
+
+/* Buttons */
+.btn-search,
+.btn-update,
+.btn-delete {
+  margin-top: 2%;
+}
+
+.btn-search,
+.btn-update {
+  margin-right: 1%;
+}
+
+.btn-delete-two {
+  margin-right: 1%;
+}
