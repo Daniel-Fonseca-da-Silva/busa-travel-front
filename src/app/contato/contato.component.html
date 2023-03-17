@@ -21,20 +21,52 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
-          <form action="" method="post">
+          <form method="post" (ngSubmit)="submitForm()" [formGroup]="contatoForm">
             <div class="mb-3">
-              <label for="" class="form-label">Nome completo</label>
-              <input type="text" class="form-control text-center" id="">
+              <div *ngIf="contatoForm.get('name')?.touched && contatoForm.get('name')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <div *ngIf="contatoForm.get('name')?.touched && contatoForm.get('name')?.errors?.['minlength']"
+                class="alert alert-danger" role="alert">
+                Atenção tamanho deve ter no mínimo {{ contatoForm.get('name')?.errors?.['minlength']?.requiredLength }}
+                caracteres!
+              </div>
+              <label for="" class="form-label">Nome completo*</label>
+              <input type="text" class="form-control text-center" formControlName="name" id="name">
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">Email</label>
-              <input type="email" class="form-control text-center" id="">
+              <div *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <label for="" class="form-label">Email*</label>
+              <input type="email" class="form-control text-center" formControlName="email" id="email">
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">Mensagem</label>
-              <textarea class="form-control" id="" rows="3"></textarea>
+              <div *ngIf="contatoForm.get('tel')?.touched && contatoForm.get('tel')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <label for="" class="form-label">Telefone*</label>
+              <input type="tel" class="form-control text-center" formControlName="tel" id="tel">
             </div>
-            <button type="submit" class="btn btn-success">Enviar</button>
+            <div class="mb-3">
+              <div *ngIf="contatoForm.get('message')?.touched && contatoForm.get('message')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <div *ngIf="contatoForm.get('message')?.touched && contatoForm.get('message')?.errors?.['minlength']"
+                class="alert alert-danger" role="alert">
+                Atenção tamanho deve ter no mínimo {{ contatoForm.get('message')?.errors?.['minlength']?.requiredLength }}
+                caracteres!
+              </div>
+              <label for="" class="form-label">Mensagem*</label>
+              <textarea class="form-control" formControlName="message" id="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="contatoForm.invalid">Enviar</button>
+            <button type="button" class="btn btn-warning btn-back" (click)="changeRouter('/');">Voltar</button>
+            <button type="button" class="btn btn-danger" (click)="clearText();" [disabled]="contatoForm.invalid">Limpar</button>
           </form>
         </div>
       </div>
