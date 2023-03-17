@@ -13,7 +13,6 @@
         <div class="col">
           <form method="post" (ngSubmit)="submitForm()" [formGroup]="clienteForm">
             <div class="mb-3">
-              <label for="" class="form-label">Nome</label>
               <div *ngIf="clienteForm.get('name')?.touched && clienteForm.get('name')?.errors?.['required']" class="alert alert-danger"
                 role="alert">
                 Atenção este campo é requerido!
@@ -22,17 +21,56 @@
                 role="alert">
                 Atenção tamanho deve ter no mínimo {{ clienteForm.get('name')?.errors?.['minlength']?.requiredLength }} caracteres!
               </div>
+              <label for="" class="form-label">Nome</label>
               <input type="text" class="form-control" id="name" formControlName="name">
             </div>
             <div class="mb-3">
+              <div *ngIf="clienteForm.get('age')?.touched && clienteForm.get('age')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
               <label for="" class="form-label">Idade</label>
               <input type="number" class="form-control" formControlName="age" id="age" placeholder="">
             </div>
             <div class="mb-3">
+              <div *ngIf="clienteForm.get('document')?.touched && clienteForm.get('document')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <div *ngIf="clienteForm.get('document')?.touched && clienteForm.get('document')?.errors?.['maxlength']"
+                class="alert alert-danger" role="alert">
+                Atenção tamanho deve ter no maximo {{ clienteForm.get('document')?.errors?.['maxlength']?.requiredLength }}
+                caracteres!
+              </div>
+              <div *ngIf="clienteForm.get('document')?.touched && clienteForm.get('document')?.errors?.['minlength']"
+                class="alert alert-danger" role="alert">
+                Atenção tamanho deve ter no mínimo {{ clienteForm.get('document')?.errors?.['minlength']?.requiredLength }}
+                caracteres!
+              </div>
               <label for="" class="form-label">Documento</label>
               <input type="text" class="form-control" formControlName="document" id="document" placeholder="">
             </div>
             <div class="mb-3">
+              <div *ngIf="clienteForm.get('email')?.touched && clienteForm.get('email')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <label for="" class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" id="email" placeholder="">
+            </div>
+            <div class="mb-3">
+              <div *ngIf="clienteForm.get('tel')?.touched && clienteForm.get('tel')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
+              <label for="" class="form-label">Telefone</label>
+              <input type="tel" class="form-control" formControlName="tel" id="tel" placeholder="">
+            </div>
+            <div class="mb-3">
+              <div *ngIf="clienteForm.get('amount')?.touched && clienteForm.get('amount')?.errors?.['required']"
+                class="alert alert-danger" role="alert">
+                Atenção este campo é requerido!
+              </div>
               <label for="" class="form-label">Crédito</label>
               <input type="number" class="form-control" formControlName="amount"  id="amount" placeholder="">
             </div>

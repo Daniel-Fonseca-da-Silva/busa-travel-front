@@ -11,12 +11,16 @@
   padding-bottom: 2.5%;
 }
 
-.text-paragraph-p1, .text-title-h1 {
+.text-paragraph-p1, .text-title-h1, .form-label {
   color: white !important;
 }
 
 .text-title-h1 {
   font-size: 2rem;
+}
+
+.title-worker-2 {
+  font-size: 2.5rem;
 }
 
 .text-paragraph-p1 {

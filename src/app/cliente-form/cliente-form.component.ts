@@ -26,9 +26,14 @@ export class ClienteFormComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      name: ['', [Validators.required, Validators.maxLength(10)]],
-      age: ['', [Validators.required, Validators.minLength(2)]],
-      document: ['', [Validators.required, Validators.maxLength(5)]],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      age: ['', [Validators.required]],
+      document: [
+        '',
+        [Validators.required, Validators.maxLength(5), Validators.minLength(5)],
+      ],
+      email: ['', [Validators.required]],
+      tel: ['', [Validators.required]],
       amount: ['', [Validators.required]],
     });
   }
@@ -38,6 +43,8 @@ export class ClienteFormComponent implements OnInit {
       name: this.clienteForm.value.name,
       age: this.clienteForm.value.age,
       document: this.clienteForm.value.document,
+      email: this.clienteForm.value.email,
+      tel: this.clienteForm.value.tel,
       amount: this.clienteForm.value.amount,
     };
 
