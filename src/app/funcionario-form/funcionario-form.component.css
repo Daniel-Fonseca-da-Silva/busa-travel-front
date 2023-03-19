@@ -1,0 +1,41 @@
+.colored-container {
+  width: 100%;
+  background-color: #4f46e5;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+/* Title and paragraphs */
+.space-one {
+  padding-top: 5%;
+  padding-bottom: 2.5%;
+}
+
+.text-paragraph-p1,
+.text-title-h1,
+.form-label {
+  color: white !important;
+}
+
+.text-title-h1 {
+  font-size: 2rem;
+}
+
+.title-worker-2 {
+  font-size: 2.5rem;
+}
+
+.text-paragraph-p1 {
+  font-size: 1rem;
+}
+
+.box-one,
+.box-two {
+  padding-top: 5%;
+}
+
+/* Buttons */
+.btn-register,
+.btn-back {
+  margin-right: 1%;
+}
