@@ -12,10 +12,10 @@
         cadastramento</p>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="!funcionarios$">
       <div class="col"></div>
       <div class="col">
-        <div class="card card-one" *ngIf="!funcionarios$">
+        <div class="card card-one">
           <div class="card-body element-card">
             <p class="lead p-two">Nenhum dado informado ou localizado</p>
           </div>
@@ -83,7 +83,7 @@
       </div>
     </div>
   </form>
-  <div class="card" *ngIf="showTableOfDriver">
+  <div class="card" *ngIf="funcionarios$">
     <div class="card-body element-card">
       <table class="table">
         <thead>

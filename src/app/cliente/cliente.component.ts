@@ -24,8 +24,6 @@ export class ClienteComponent implements OnInit {
 
   clientsFormList!: FormGroup;
 
-  showTableOfClient: boolean = false;
-
   showPanelEdit: boolean = false;
 
   displayStyle = 'none';
@@ -52,7 +50,6 @@ export class ClienteComponent implements OnInit {
   }
 
   callFormUpdate(): void {
-    this.showTableOfClient = false;
     this.showPanelEdit = true;
     this.clientsFormList = this.initFormClients();
   }
@@ -77,14 +74,12 @@ export class ClienteComponent implements OnInit {
       .getClientes(this.searchForm.value.name)
       .subscribe((dado: ClienteI) => (this.clients$ = dado));
     this.showPanelEdit = false;
-    this.showTableOfClient = true;
     return this.clients$;
   }
 
   onDelete(): void {
     this.clienteService.deleteClientes(this.clients$.id!).subscribe();
     this.displayStyle = 'none';
-    this.showTableOfClient = false;
   }
 
   initForm(): FormGroup {
@@ -96,7 +91,6 @@ export class ClienteComponent implements OnInit {
   clearText(): void {
     this.searchForm.reset();
     this.displayStyle = 'none';
-    this.showTableOfClient = false;
     this.showPanelEdit = false;
   }
 

@@ -24,8 +24,6 @@ export class FuncionarioComponent implements OnInit {
 
   funcionarioFormList!: FormGroup;
 
-  showTableOfDriver: boolean = false;
-
   showPanelEdit: boolean = false;
 
   displayStyle = 'none';
@@ -53,7 +51,6 @@ export class FuncionarioComponent implements OnInit {
   }
 
   callFormUpdate(): void {
-    this.showTableOfDriver = false;
     this.showPanelEdit = true;
     this.funcionarioFormList = this.initFormClients();
   }
@@ -79,7 +76,6 @@ export class FuncionarioComponent implements OnInit {
       .getFuncionario(this.searchForm.value.name)
       .subscribe((dado: FuncionarioI) => (this.funcionarios$ = dado));
     this.showPanelEdit = false;
-    this.showTableOfDriver = true;
     return this.funcionarios$;
   }
 
@@ -88,7 +84,6 @@ export class FuncionarioComponent implements OnInit {
       .deleteFuncionario(this.funcionarios$.id!)
       .subscribe();
     this.displayStyle = 'none';
-    this.showTableOfDriver = false;
   }
 
   initForm(): FormGroup {
@@ -100,7 +95,6 @@ export class FuncionarioComponent implements OnInit {
   clearText(): void {
     this.searchForm.reset();
     this.displayStyle = 'none';
-    this.showTableOfDriver = false;
     this.showPanelEdit = false;
   }
 
