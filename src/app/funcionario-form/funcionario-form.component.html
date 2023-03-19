@@ -1,3 +1,102 @@
 <app-header></app-header>
-<h1>Work!</h1>
+
+<div class="container-fluid text-center colored-container">
+  <div class="box-one">
+    <h1 class="display-1 text-title-h1">Cadastrar usuário</h1>
+    <p class="lead p-passenger-1 text-paragraph-p1">Informe seus dados abaixo</p>
+  </div>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <form method="post" (ngSubmit)="submitForm()" [formGroup]="funcionarioForm">
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('name')?.touched && funcionarioForm.get('name')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <div *ngIf="funcionarioForm.get('name')?.touched && funcionarioForm.get('name')?.errors?.['minlength']"
+              class="alert alert-danger" role="alert">
+              Atenção tamanho deve ter no mínimo {{ funcionarioForm.get('name')?.errors?.['minlength']?.requiredLength }}
+              caracteres!
+            </div>
+            <label for="" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('age')?.touched && funcionarioForm.get('age')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <label for="" class="form-label">Idade</label>
+            <input type="number" class="form-control" formControlName="age" id="age" placeholder="">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('driverLicense')?.touched && funcionarioForm.get('driverLicense')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <label for="" class="form-label">Carteira de motorista</label>
+            <input type="text" class="form-control" formControlName="driverLicense" id="driverLicense" placeholder="">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('salary')?.touched && funcionarioForm.get('salary')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <label for="" class="form-label">Salário</label>
+            <input type="number" class="form-control" formControlName="salary" id="salary" placeholder="">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('document')?.touched && funcionarioForm.get('document')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <div *ngIf="funcionarioForm.get('document')?.touched && funcionarioForm.get('document')?.errors?.['minlength']"
+              class="alert alert-danger" role="alert">
+              Atenção tamanho deve ter no mínimo {{
+              funcionarioForm.get('document')?.errors?.['minlength']?.requiredLength }}
+              caracteres!
+            </div>
+            <div *ngIf="funcionarioForm.get('document')?.touched && funcionarioForm.get('document')?.errors?.['maxlength']"
+              class="alert alert-danger" role="alert">
+              Atenção tamanho deve ter no maximo {{
+              funcionarioForm.get('document')?.errors?.['maxlength']?.requiredLength }}
+              caracteres!
+            </div>
+            <label for="" class="form-label">Documento</label>
+            <input type="text" class="form-control" formControlName="document" id="document" placeholder="">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('email')?.touched && funcionarioForm.get('email')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <label for="" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="">
+          </div>
+          <div class="mb-3">
+            <div *ngIf="funcionarioForm.get('tel')?.touched && funcionarioForm.get('tel')?.errors?.['required']"
+              class="alert alert-danger" role="alert">
+              Atenção este campo é requerido!
+            </div>
+            <label for="" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" formControlName="tel" id="tel" placeholder="">
+          </div>
+          <div class="col auto">
+            <button type="submit" class="btn btn-success btn-register">Cadastrar</button>
+            <button type="button" class="btn btn-warning btn-back" (click)="changeRouter('/cliente');">Voltar</button>
+            <button type="button" class="btn btn-danger" (click)="clearText();">Limpar</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>

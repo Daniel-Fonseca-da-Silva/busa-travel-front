@@ -43,7 +43,10 @@ export class FuncionarioComponent implements OnInit {
       age: [this.funcionarios$.age, [Validators.required]],
       driverLicense: [this.funcionarios$.driverLicense, [Validators.required]],
       salary: [this.funcionarios$.salary, [Validators.required]],
-      document: [this.funcionarios$.document, [Validators.required]],
+      document: [
+        this.funcionarios$.document,
+        [Validators.required, Validators.maxLength(5), Validators.minLength(5)],
+      ],
       email: [this.funcionarios$.email, [Validators.required]],
       tel: [this.funcionarios$.tel, [Validators.required]],
     });
@@ -56,16 +59,19 @@ export class FuncionarioComponent implements OnInit {
   }
 
   onSubmitUpdate(): void {
-    // this.funcionariosToUpdate$ = {
-    //   name: this.funcionarioFormList.value.name,
-    //   age: this.funcionarioFormList.value.age,
-    //   driverLicense: this.funcionarioFormList.value.driverLicense,
-    //   salary: this.funcionarioFormList.value.salary,
-    // };
-    // this.funcionarioService
-    //   .updateCliente(this.funcionarios$.id!, this.funcionariosToUpdate$)
-    //   .subscribe();
-    // this.showPanelEdit = false;
+    this.funcionariosToUpdate$ = {
+      name: this.funcionarioFormList.value.name,
+      age: this.funcionarioFormList.value.age,
+      driverLicense: this.funcionarioFormList.value.driverLicense,
+      salary: this.funcionarioFormList.value.salary,
+      document: this.funcionarioFormList.value.document,
+      email: this.funcionarioFormList.value.email,
+      tel: this.funcionarioFormList.value.tel,
+    };
+    this.funcionarioService
+      .updateFuncionario(this.funcionarios$.id!, this.funcionariosToUpdate$)
+      .subscribe();
+    this.showPanelEdit = false;
   }
 
   onSubmit(): FuncionarioI {
